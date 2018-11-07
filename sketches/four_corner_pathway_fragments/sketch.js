@@ -67,11 +67,6 @@ function setup() {
 	frameRateSlider = createSlider(1, 100, 10);
 	createP("Border color (black to white)");
 	squareStrokeColorSlider = createSlider(0, 255, 220);
-
-	
-
-	createP("<hr>");
-	createP("Anna Garbier, 2018-10-30")
 }
 
 function draw() {
