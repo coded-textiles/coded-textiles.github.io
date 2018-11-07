@@ -1,0 +1,23 @@
+body {
+  padding: 0;
+  margin-left: 20%;
+  margin-right: 20%;
+  font-family: "Courier New";
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+	font-size: 20px;
+}
+
+h2 {
+	font-size: 18px;
+}
+
+p, li {
+	font-size: 14px;
+}
+
+b {
+	background: yellow;
+}
