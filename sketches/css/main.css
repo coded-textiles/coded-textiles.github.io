@@ -78,7 +78,7 @@ a {
 	text-decoration: none;
 }
 
-a:visited {
+a:visited, a:link {
 	color: black;
 }
 
@@ -160,4 +160,3 @@ button:focus {
     background: rgb(199, 0, 57);
     cursor: pointer;
 }
-
