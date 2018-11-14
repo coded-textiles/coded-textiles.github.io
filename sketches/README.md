@@ -1,3 +1,3 @@
 # Coded Textile Project - Sketches
 
-Short, experimental sketches exploring generative patterns.
+<a href="https://coded-textiles.github.io/sketches/four_corner_pathway_fragments_line/index.html" target="_blank">Short, experimental sketches</a> exploring generative patterns.
