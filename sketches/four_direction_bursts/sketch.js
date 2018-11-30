@@ -59,14 +59,14 @@ function makeControlPanel() {
 	colorRadio._getInputChildrenArray()[0].checked = true; // Defualt b/w
 	// colorRadio.class('radio');
 
-	// Color
+	// Angle
 	var angleText = createP("Black and white or color");
 	angleRadio = createRadio('name');
 	angleRadio.option(' 90 deg.  ', 0);
 	angleRadio.option(' Random deg.', 1);
 	angleText.parent('controls-container');
 	angleRadio.parent('controls-container');
-	angleRadio._getInputChildrenArray()[0].checked = true; // Defualt b/w
+	angleRadio._getInputChildrenArray()[1].checked = true; // Defualt random
 	// angleRadio.class('radio');
 }
 
@@ -79,7 +79,6 @@ function drawLines() {
 		line(x - canvasWidth, y - tempRand, x + canvasWidth, y + tempRand); // Horizontal line
 		line(x - tempRand, y - canvasWidth, x + tempRand, y + canvasWidth); //  Vertical line
 	}
-	
 }
 
 function drawBusrt() {
