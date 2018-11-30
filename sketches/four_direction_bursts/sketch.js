@@ -1,10 +1,5 @@
-/* Generate a square with internal Bezier curves.
- * Then systemmatically reflect that square to create
- * larger, symmetrical squares of increasing complexity.
- *
- * TODO:
- * 1) This is clumsily written; make it scalable.
- * 2) Show starter unit on side
+/* Draw using bursts of random (x, y) coordinates and
+ * corresponding lines.
  *
  * Anna Garbier
  */
