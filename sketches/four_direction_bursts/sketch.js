@@ -7,17 +7,13 @@
 // Canvas
 const canvasWidth = 650;
 const canvasHeight = canvasWidth;
-
 const backgroundColor = 255;
 const lineWeight = .5;
-
 const ellipseDiam = 8;
 
 const hexBlack = "#000000";
 const hexBlue = "#41C0DE";
 const hexRed = "#EF4550";
-
-let colorOn;
 
 let x;
 let y;
@@ -39,7 +35,7 @@ function makeControlPanel() {
 
 	// Frame rate
 	var frameRateText = createP("Frames per second (1 to 100)");
-	frameRateSlider = createSlider(1, 100, 5);
+	frameRateSlider = createSlider(1, 100, 90); // Default 90 frames / second
 	frameRateText.parent('controls-container');
 	frameRateSlider.parent('controls-container');
 	frameRateSlider.class('slider');
