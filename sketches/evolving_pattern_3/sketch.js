@@ -9,8 +9,8 @@ const lineWeight = .5;
 const ellipseWidth = 8;
 
 // start (x, y)
-let x = 10;
-let y = 10;
+let x = 0;
+let y = 0;
 
 // unit width
 const unitWidth = 400;
