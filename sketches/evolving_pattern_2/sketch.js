@@ -9,8 +9,8 @@ const lineWeight = .01;
 const ellipseWidth = 10;
 
 // start (x, y)
-let x = 10;
-let y = 10;
+let x = 0;
+let y = 0;
 
 // unit width
 const unitWidth = 400;
@@ -26,6 +26,12 @@ let adjustedBezierOffset;
 
 let currentPoint = 0;
 let bezPolarity;
+
+const hexBlack = "#000000";
+const hexBlue = "#41C0DE";
+const hexRed = "#EF4550";
+
+let posColor = 0;
 
 function setup() {
 	var canvas = createCanvas(canvasWidth, canvasHeight);
@@ -50,12 +56,33 @@ function setup() {
 	midpoint[7] = [x + (unitWidth * .125), y + (unitWidth * .875)];
 	midpoint[8] = [x + (unitWidth * 0), y + (unitWidth * 1)];
 
+
 	// Make refresh button and sliders
+	// Connector color - red
+	var redText = createP("Connector color (red)");
+	redSlider = createSlider(0, 255, 0);
+	redText.parent('controls-container');
+	redSlider.parent('controls-container');
+	redSlider.class('slider');
+
+	// Connector color - green
+	var greenText = createP("Connector color (green)");
+	greenSlider = createSlider(0, 255, 0);
+	greenText.parent('controls-container');
+	greenSlider.parent('controls-container');
+	greenSlider.class('slider');
+
+	// Connector color - blue
+	var blueText = createP("Connector color (blue)");
+	blueSlider = createSlider(0, 255, 0);
+	blueText.parent('controls-container');
+	blueSlider.parent('controls-container');
+	blueSlider.class('slider');
+
+
 	var button = createButton("Refresh sketch");
 	button.parent('start-button-container');
 	button.mousePressed(refreshSketch);
-
-	frameRate(4);
 }
 
 function drawBorder() {
@@ -153,7 +180,8 @@ function drawSpokes() {
 
 function bezChooser() { // 1 for convex, -1 for concave
 	if (random(-1, 1) > 0) {
-		fill(0);
+		// fill(0);
+		fill(posColor);
 		bezPolarity = 1;
 	} else {
 		fill(255);
@@ -170,7 +198,8 @@ function drawTriangle(startId, endId) {
 	// }
 
 	noStroke();
-	fill(0);
+	// fill(0);
+	fill(posColor);
 	triangle(
 		origin[0], origin[1],
 		point[startId][0], point[startId][1],
@@ -251,5 +280,6 @@ function draw() {
 
 function refreshSketch() {
 	background(255);
+	posColor = color(redSlider.value(), greenSlider.value(), blueSlider.value());
 	currentPoint = 0;
 }
