@@ -34,6 +34,8 @@ const hexBlack = "#000000";
 const hexBlue = "#41C0DE";
 const hexRed = "#EF4550";
 
+let posColor = 0;
+
 function setup() {
 	var canvas = createCanvas(canvasWidth, canvasHeight);
 	canvas.parent('sketch-container');
@@ -64,6 +66,29 @@ function setup() {
 	pointMatch[4] = [5];
 
 	// Make refresh button and sliders
+	// Make refresh button and sliders
+	// Connector color - red
+	var redText = createP("Connector color (red)");
+	redSlider = createSlider(0, 255, 0);
+	redText.parent('controls-container');
+	redSlider.parent('controls-container');
+	redSlider.class('slider');
+
+	// Connector color - green
+	var greenText = createP("Connector color (green)");
+	greenSlider = createSlider(0, 255, 0);
+	greenText.parent('controls-container');
+	greenSlider.parent('controls-container');
+	greenSlider.class('slider');
+
+	// Connector color - blue
+	var blueText = createP("Connector color (blue)");
+	blueSlider = createSlider(0, 255, 0);
+	blueText.parent('controls-container');
+	blueSlider.parent('controls-container');
+	blueSlider.class('slider');
+
+
 	var button = createButton("Refresh sketch");
 	button.parent('start-button-container');
 	button.mousePressed(refreshSketch);
@@ -103,7 +128,8 @@ function drawBezierAnchors() {
 function drawFill() {
 	if (currentPoint !== 5) {
 		noStroke();
-		fill(0);
+		// fill(0);
+		fill(posColor);
 		console.log("current point id: " + currentPoint); // e.g. 0
 
 		// pointMatch[0][random index of possible choices]
@@ -150,7 +176,8 @@ function drawFill() {
 		// ellipse(pointComp[anchorPoint][0], pointComp[anchorPoint][1], 10, 10);
 
 		if (pointComp[anchorPoint][1] == x) { // convex or concave
-			fill(0);
+			// fill(0);
+			fill(posColor);
 		} else {
 			fill(255);
 		}
@@ -174,5 +201,6 @@ function draw() {
 
 function refreshSketch() {
 	background(255);
+	posColor = color(redSlider.value(), greenSlider.value(), blueSlider.value());
 	currentPoint = 0;
 }
