@@ -26,19 +26,12 @@ function setup() {
 	noFill();
 	rectMode(CENTER);
 
-	p0 = new Square();
-	p0.getRandomFeatures();
-	p0.drawSelf();
+	refreshSketch();
 
-	translate(unitWidth + 50, 0);
-	p1 = new Square();
-	p1.getRandomFeatures();
-	p1.drawSelf();
-
-	translate(-(unitWidth / 2 + 25), unitWidth + 50);
-	c0 = new Square();
-	c0.getInheritedFeatures(p0, p1);
-	c0.drawSelf();
+	// Make refresh button and sliders
+	var button = createButton("Regenerate");
+	button.parent('start-button-container');
+	button.mousePressed(refreshSketch);
 }
 
 class Corner {
@@ -175,4 +168,25 @@ class Square {
 			this.corners[i].drawBorders();
 		}
 	}
+}
+
+function refreshSketch() {
+	push();
+	background(255);
+	originX = 0;
+	originY = 0;
+	p0 = new Square();
+	p0.getRandomFeatures();
+	p0.drawSelf();
+
+	translate(unitWidth + 50, 0);
+	p1 = new Square();
+	p1.getRandomFeatures();
+	p1.drawSelf();
+
+	translate(-(unitWidth / 2 + 25), unitWidth + 50);
+	c0 = new Square();
+	c0.getInheritedFeatures(p0, p1);
+	c0.drawSelf();
+	pop();
 }
