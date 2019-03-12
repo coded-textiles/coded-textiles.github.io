@@ -1,6 +1,5 @@
 // Evolving pattern, still in rough experimental stage.
 
-// Basic variables (usually don't change from sketch-to-sketch)
 const canvasWidth = 700;
 let randomizeLayOrder = true;
 let mutateThreshold = .1;
@@ -14,13 +13,7 @@ let squares = [];
 let mutationRateSlider;
 let numGenerationsSlider;
 let layOrderRadio;
-
-
-// TODO
-// num generations slider
-// corner size slider
-// refresh button
-// check inheritance
+let inheritMutationRadio;
 
 // Load static png files (i.e. corners)
 function preload() {
@@ -67,7 +60,16 @@ function setup() {
 	layOrderRadio.option('false', 1);
 	layOrderText.parent('controls-container');
 	layOrderRadio.parent('controls-container');
-	layOrderRadio._getInputChildrenArray()[0].checked = true; // Defualt b/w
+	layOrderRadio._getInputChildrenArray()[0].checked = true;
+
+	// Inherit mutations
+	const inheritMutationText = createP("Inherit mutations");
+	inheritMutationRadio = createRadio('inherit mutations');
+	inheritMutationRadio.option('true ', 0);
+	inheritMutationRadio.option('false', 1);
+	inheritMutationText.parent('controls-container');
+	inheritMutationRadio.parent('controls-container');
+	inheritMutationRadio._getInputChildrenArray()[0].checked = true;
 
 	// Make refresh button and sliders
 	const button = createButton("Regenerate parents and children");
@@ -169,16 +171,30 @@ function drawGeneration(_s1, _s2) {
 // Create new generation
 function createNewGeneration(_s1, _s2) {
 	// Create children
-	const newSquare1 = new Square(
-		_s1.corners[0], _s1.corners[1], _s2.corners[2], _s2.corners[3],
-		_s1.mutation.x[0], _s1.mutation.x[1], _s2.mutation.x[2], _s2.mutation.x[3],
-		_s1.mutation.y[0], _s1.mutation.y[1], _s2.mutation.y[2], _s2.mutation.y[3]
-	);
-	const newSquare2 = new Square(
-		_s2.corners[0], _s2.corners[1], _s1.corners[2], _s1.corners[3],
-		_s2.mutation.x[0], _s2.mutation.x[1], _s1.mutation.x[2], _s1.mutation.x[3],
-		_s2.mutation.y[0], _s2.mutation.y[1], _s1.mutation.y[2], _s1.mutation.y[3]
-	);
+	let newSquare1, newSquare2;
+	if (inheritMutationRadio._getInputChildrenArray()[0].checked) {
+		newSquare1 = new Square(
+			_s1.corners[0], _s1.corners[1], _s2.corners[2], _s2.corners[3],
+			_s1.mutation.x[0], _s1.mutation.x[1], _s2.mutation.x[2], _s2.mutation.x[3],
+			_s1.mutation.y[0], _s1.mutation.y[1], _s2.mutation.y[2], _s2.mutation.y[3]
+		);
+		newSquare2 = new Square(
+			_s2.corners[0], _s2.corners[1], _s1.corners[2], _s1.corners[3],
+			_s2.mutation.x[0], _s2.mutation.x[1], _s1.mutation.x[2], _s1.mutation.x[3],
+			_s2.mutation.y[0], _s2.mutation.y[1], _s1.mutation.y[2], _s1.mutation.y[3]
+		);
+	} else {
+		newSquare1 = new Square(
+			_s1.corners[0], _s1.corners[1], _s2.corners[2], _s2.corners[3],
+			0, 0, 0, 0,
+			0, 0, 0, 0
+		);
+		newSquare2 = new Square(
+			_s2.corners[0], _s2.corners[1], _s1.corners[2], _s1.corners[3],
+			0, 0, 0, 0,
+			0, 0, 0, 0
+		);
+	}
 
 	// Add new mutations
 	newSquare1.mutateSelf();
@@ -187,9 +203,4 @@ function createNewGeneration(_s1, _s2) {
 	// Push to lineage
 	squares.push(newSquare1);
 	squares.push(newSquare2);
-}
-
-
-function refreshSketch() {
-
 }
