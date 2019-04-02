@@ -97,7 +97,7 @@ function refresh() {
 	// Position to begin lineage chain
 	translate(width / 2, cornerSize / 2);
 
-	for (let g = 0; g < numGenerationsSlider.value(); g++) {
+	for (let g = 0; g < numGenerationsSlider.value(); g += 2) {
 		drawGeneration(squares[g + 0], squares[g + 1]);
 		createNewGeneration(squares[g + 0], squares[g + 1]);
 	}
