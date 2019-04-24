@@ -72,7 +72,7 @@ function setup() {
 	inheritMutationRadio._getInputChildrenArray()[0].checked = true;
 
 	// Make refresh button and sliders
-	const button = createButton("Regenerate parents and children");
+	const button = createButton("Regenerate lineage");
 	button.parent('start-button-container');
 	button.mousePressed(refresh);
 
