@@ -28,21 +28,21 @@ function setup() {
 function makeControls() {
     // Noise variation
 	let incText = createP("Coordination");
-	incSlider = createSlider(.0001, .1, .01, .0001); // min, max, default
+	incSlider = createSlider(.0001, .15, .1, .0001); // min, max, default
 	incText.parent('controls-container');
 	incSlider.parent('controls-container');
     incSlider.class('slider');
 
     // Density
 	let sclText = createP("Density");
-	sclSlider = createSlider(200, 400, 300, 1); // min, max, default
+	sclSlider = createSlider(200, 400, 200, 1); // min, max, default
 	sclText.parent('controls-container');
 	sclSlider.parent('controls-container');
     sclSlider.class('slider');
 
     // Speed
 	let speedText = createP("Speed");
-	speedSlider = createSlider(0.000001, 0.0002, 0.0001, 0.00001); // min, max, default
+	speedSlider = createSlider(0.000001, 0.0002, 0.00005, 0.00001); // min, max, default
 	speedText.parent('controls-container');
 	speedSlider.parent('controls-container');
     speedSlider.class('slider');
