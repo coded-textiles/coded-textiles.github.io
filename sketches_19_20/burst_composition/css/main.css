@@ -1,0 +1,81 @@
+/* input-font */
+
+html, body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    background: black;
+    overflow: hidden;
+}
+
+#controls {
+    position: fixed;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    border-radius: 2px;
+    margin: 10px;
+    padding: 0px;
+    z-index: 200;
+    color: white;
+    width: 200px;
+}
+
+#controls p {
+    margin-bottom: 0px;
+}
+
+#sketch {
+    position: fixed;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 98%;
+    height: 12px;
+    border-radius: 2px;
+    background: black;
+    border: 1px solid white;
+    outline: white;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    font-size: 12px;
+    margin-top: 0px;
+    cursor: pointer;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 12px;
+    border-radius: 1px;
+    background: white;
+}
+
+button {
+    margin-top: 20px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, .7);
+    border: 1px solid white;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: black;
+}
+
+button:focus {
+    outline: none;
+}
