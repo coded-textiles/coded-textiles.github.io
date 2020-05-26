@@ -13,8 +13,8 @@ function preload() {
   rb2l = loadImage('../assets/RB2_45L.png');
   rb2r = loadImage('../assets/RB2_45R.png');
   rb5r = loadImage('../assets/RB5.png');
-  // rb5l = loadImage('../assets/RB5_180L.png');
-  rb5l = loadImage('../assets/RB5.png');
+  rb5l = loadImage('../assets/RB5_180L.png');
+  // rb5l = loadImage('../assets/RB5.png'); // temp solution for slow load
   rb7 = loadImage('../assets/RB7.png');
 }
 
