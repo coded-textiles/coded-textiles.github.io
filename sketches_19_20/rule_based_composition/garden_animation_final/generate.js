@@ -107,13 +107,13 @@ function generateFlowerObjects(startx, starty) {
   function growFlower() {
     flower_objects.push(new Unit(rb4, x, y));
     // Up/down
-    if (random(1) < 0.75) {
+    if (random(1) < 0.5) {
       move('up');
       if (random(1) < 0.1) {
         move('up');
-      } else if (random(1) < 0.2) {
+      } else if (random(1) < 0.1) {
         move('up-right');
-      } else if (random(1) < 0.3) {
+      } else if (random(1) < 0.1) {
         move('up-left');
       }
       x = startx - rb4.width * 0.33;
@@ -121,25 +121,25 @@ function generateFlowerObjects(startx, starty) {
     }
 
     // Left/right
-    if (random(1) < 0.25) {
+    if (random(1) < 0.1) {
       move('left');
-      if (random(1) < 0.1) {
+      if (random(1) < 0.05) {
         move('left');
-      } else if (random(1) < 0.2) {
+      } else if (random(1) < 0.1) {
         move('up-left');
-      } else if (random(1) < 0.3) {
+      } else if (random(1) < 0.15) {
         move('down-left');
       }
       x = startx - rb4.width * 0.33;
       y = starty + rb4.height * 0.05;
-    } else if (random(1) < 0.75) {
-      if (random(1) < 0.75) {
+    } else if (random(1) < 0.5) {
+      if (random(1) < 0.5) {
         move('up-left');
-        if (random(1) < 0.1) {
+        if (random(1) < 0.05) {
           move('left');
-        } else if (random(1) < 0.2) {
+        } else if (random(1) < 0.1) {
           move('up-left');
-        } else if (random(1) < 0.3) {
+        } else if (random(1) < 0.15) {
           move('up');
         }
         x = startx - rb4.width * 0.33;
@@ -148,11 +148,11 @@ function generateFlowerObjects(startx, starty) {
 
       if (random(1) < 0.75) {
         move('down-left');
-        if (random(1) < 0.1) {
+        if (random(1) < 0.05) {
           move('left');
-        } else if (random(1) < 0.2) {
+        } else if (random(1) < 0.1) {
           move('down-left');
-        } else if (random(1) < 0.3) {
+        } else if (random(1) < 0.15) {
           move('down');
           long_branch_l_ok = false;
         }
@@ -161,9 +161,10 @@ function generateFlowerObjects(startx, starty) {
       }
     }
 
-    if (random(1) < 0.25) {
+    if (random(1) < 0.1) {
       move('right');
-      if (random(1) < 0.1) {
+      if (random(1) < 0.05) {
+        // end test
         move('right');
       } else if (random(1) < 0.2) {
         move('up-right');
